@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Мини-игра с фоном</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        #game {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('фон.jpg'); /* Путь к вашему изображению */
+            background-size: cover; /* Растягиваем на весь экран */
+            background-position: center; /* Центрируем */
+            background-repeat: no-repeat; /* Убираем повторение */
+            border-top: 2px solid #333;
+        }
+        #player {
+            position: absolute;
+        width: 256px; /* Подгоняем под размер спрайта */
+        height: 256px;
+        background-image: url('bee1.png');
+        background-size: contain; /* Чтобы изображение вписалось */
+        background-repeat: no-repeat;
+        bottom: 256px;
+        left: 256px;
+        }
+        .obstacle {
+        position: absolute;
+        width: 224px;    /* Размеры препятствий (под ваш спрайт) */
+        height: 224px;
+        background-image: url('fair.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        right: 0;
+        }
+        #score, #gameOver {
+            position: fixed;
+            color: white; /* Белый текст для контраста */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Читаемость на любом фоне */
+        }
+        #score {
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+        }
+        #gameOver {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 36px;
+            display: none;
+        }
+        #player-hitbox {
+        position: absolute;
+        width: 80px;  /* Размер хитбокса */
+        height: 120px;
+        left: 50px;   /* Позиция хитбокса */
+        bottom: 50px;
+        /* border: 2px solid green; /* Для отладки */
+        }
+
+        #player-sprite {
+            position: absolute;
+            width: 200px;  /* Размер спрайта */
+            height: 200px;
+            background-image: url('bee1.png');
+            background-size: contain;
+            /* Смещаем спрайт относительно хитбокса */
+            left: -60px;   /* Сдвиг влево на 60px */
+            bottom: -40px;  /* Сдвиг вниз на 40px */
+        }
+    </style>
+</head>
+<body>
+    <div id="score">0</div>
+    <div id="game"></div>
+<script src="game.js"></script>
+</body>
+</html>
